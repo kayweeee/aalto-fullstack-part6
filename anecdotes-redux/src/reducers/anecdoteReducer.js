@@ -10,6 +10,19 @@ const anecdotesAtStart = [
 
 const getId = () => (100000 * Math.random()).toFixed(0);
 
+// ACTION CREATORS
+export const createAnecdote = (content) => {
+  return {
+    type: "NEW_ANECDOTE",
+    payload: { content: content, id: getId(), votes: 0 },
+  };
+};
+
+export const voteFor = (id) => {
+  return { type: "VOTE", payload: { id: id } };
+};
+
+// REDUCER FUNCTION
 const asObject = (anecdote) => {
   return {
     content: anecdote,
