@@ -32,9 +32,9 @@ const reducer = (state = initialState, action) => {
         ...anecdoteToChange,
         votes: anecdoteToChange.votes + 1,
       };
-      return state.map((anecdote) =>
-        anecdote.id === id ? changedAnecdote : anecdote
-      );
+      return state
+        .map((anecdote) => (anecdote.id === id ? changedAnecdote : anecdote))
+        .sort((a, b) => b.votes - a.votes);
     case "NEW_ANECDOTE":
       return [...state, action.payload];
     default:
