@@ -6,11 +6,11 @@ export const getAnecdotes = () => {
 };
 
 export const createAnecdote = (newAnecdote) => {
-  axios.post(baseUrl, newAnecdote).then((res) => res.data);
+  return axios.post(baseUrl, newAnecdote).then((res) => res.data);
 };
 
 export const voteAnecdote = (votedAnecdote) => {
-  axios
+  return axios
     .put(`${baseUrl}/${votedAnecdote.id}`, votedAnecdote)
     .then((res) => res.data);
 };
